@@ -147,12 +147,34 @@ def order_test_set(path_to_images, path_to_csv, path_to_save_test):
 # preprocess and get the data
 def create_generators(batch_size, train_data_path, 
                       val_data_path, test_data_path):
+    """
+    Create data generators
+
+    Parameters:
+        batch_size: batch size for the generators (int)
+        train_data_path: train data path (str)
+        val_data_path: validation data path (str)
+        test_data_path: test data path (str)
+
+    Returns:
+        train_generator: train data generator
+        val_generator: validation data generator
+        test_generator: test data generator
+    """
     
-    preprocessor = ImageDataGenerator(
-        rescale = 1 / 255.0
+    train_preprocessor = ImageDataGenerator(
+        rescale = 1 / 255.0, # normalization
+        rotation_range = 10, # 10 degress [-10, 10] rotation
+        width_shift_range = 0.1 # 10 percent left or right shifting
     )
 
-    train_generator = preprocessor.flow_from_directory(
+    # data augmentation is not necessary for the val. and test sets
+    # because they are real life examples
+    test_preprocessor = ImageDataGenerator(
+        rescale = 1 / 255.0, # normalization
+    )
+
+    train_generator = train_preprocessor.flow_from_directory(
         train_data_path,
         class_mode = 'categorical',
         target_size = (60, 60),
@@ -161,7 +183,7 @@ def create_generators(batch_size, train_data_path,
         batch_size = batch_size
     )
 
-    val_generator = preprocessor.flow_from_directory(
+    val_generator = test_preprocessor.flow_from_directory(
         val_data_path,
         class_mode = 'categorical',
         target_size = (60, 60),
@@ -170,7 +192,7 @@ def create_generators(batch_size, train_data_path,
         batch_size = batch_size
     )
 
-    test_generator = preprocessor.flow_from_directory(
+    test_generator = test_preprocessor.flow_from_directory(
         test_data_path,
         class_mode = 'categorical',
         target_size = (60, 60),
