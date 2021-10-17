@@ -2,7 +2,16 @@ import tensorflow as tf
 import numpy as np
 
 def predict_with_model(model, imgpath):
-    """mnist_example.py"""
+    """
+    Predict an image to which class it belongs
+
+    Parameters:
+        model: tensorflow model
+        imgpath: to be predicted image path (str)
+
+    Returns:
+        prediction: predicted class (int)
+    """
 
     image = tf.io.read_file(imgpath)
     image = tf.image.decode_png(image, channels = 3)
