@@ -1,5 +1,4 @@
 import tensorflow as tf
-import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow.keras.layers import (Conv2D, Input, Dense, MaxPool2D,
                                     BatchNormalization, Flatten,
@@ -8,8 +7,8 @@ from tensorflow.keras.layers import (Conv2D, Input, Dense, MaxPool2D,
 from deeplearning_models import functional_model, MyCustomModel
 from my_utils import display_some_examples
 
-# model creation approach
-MODEL_APPROACH = "class_based"
+# model creation approach (sequential, functional, class_based)
+MODEL_APPROACH = "functional"
 
 # create a sequential model (sequential approach)
 seq_model = tf.keras.Sequential(
@@ -43,7 +42,7 @@ if __name__ == '__main__':
     print("y test  dataset shape: ", y_test.shape)
 
     # display some dataset examples
-    if True:
+    if False:
         display_some_examples(x_train, y_train)
     
     # normalize the data

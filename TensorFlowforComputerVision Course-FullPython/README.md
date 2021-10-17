@@ -6,13 +6,13 @@
 
 
 
-## Prerequisites
+## Requirements
 
-numpy = 1.19.5
+- numpy = 1.19.5
 
-matplotlib = 3.4.3
+- matplotlib = 3.4.3
 
-tensorflow = 2.6.0
+- tensorflow = 2.6.0
 
 
 
@@ -30,7 +30,7 @@ It is a good database for people who want to try learning techniques and pattern
 
 Some examples from the dataset:
 
-![](D:\Osman\Tutorials\freeCodeCamp\freeCodeCamp_Courses\TensorFlowforComputerVision Course-FullPython\MNIST_Data_Preview.png)
+![](MNIST_Data_Preview.png)
 
 
 
@@ -49,11 +49,39 @@ Some examples from the dataset:
 
 ## Second Part
 
+### Traffic Sign Example
+
+The German Traffic Sign Benchmark is a multi-class, single-image classification challenge held at the International Joint Conference on Neural Networks (IJCNN) 2011. The benchmark has the following properties [[2]](#references):
+
+- Single-image, multi-class classification problem
+- More than 40 classes
+- More than 50,000 images in total
+- Large, lifelike database
 
 
 
+### Data Preview
 
-### References
+Some examples from the dataset:
+
+![](Traffic_Sign_Data_Preview.png)
+
+### Steps
+
+- Explored the dataset.
+- Prepared train, validation and test sets.
+- Built a neural network the functional way.
+- Created data generators.
+- Added callbacks.
+- Trained and evaluated the model.
+- Discussed potential improvements.
+- How to run inference on single images.
+
+
+
+## References
 
 [1. THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/)
+
+[2. GTSRB - German Traffic Sign Recognition Benchmark](https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign)
 
